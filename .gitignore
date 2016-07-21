@@ -1,0 +1,22 @@
+# maven target directories
+target
+
+# IntelliJ project files
+.idea/
+*.iws
+*.ipr
+*.iml
+
+
+# binary files produced during build
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+
+# VIM swap files
+*.swp
+
+*.log
+

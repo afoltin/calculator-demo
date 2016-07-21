@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mrc="http://www.mobiquityinc.com/schema/mobit/steps/restclient"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans                      http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.mobiquityinc.com/schema/mobit/steps/restclient        http://www.mobiquityinc.com/schema/mobit/steps/restclient.xsd
+       ">
+
+    <bean id="demoTest_propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:calculator-test.properties"/>
+        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+    </bean>
+
+
+    <import resource="classpath:META-INF/spring/mobit-steps-restclient.xml" />
+
+    <mrc:rest-client baseUrl="${test.webapp.baseUrl}"
+                     connectionTimeoutMillis="${test.webapp.connectionTimeoutMillis}"
+                     socketTimeoutMillis="${test.webapp.socketTimeoutMillis}"
+                     maxConnections="${test.webapp.maxConnections}" />
+
+
+</beans>
